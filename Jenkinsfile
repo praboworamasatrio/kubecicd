@@ -32,7 +32,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-		  sh 'kubectl delete -f hellowhale.yml > /dev/null'
+		  sh 'kubectl delete -f hellowhale.yml || echo "Pod not found"'
           sh 'kubectl apply -f hellowhale.yml'
         }
       }
