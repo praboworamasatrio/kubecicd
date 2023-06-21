@@ -32,7 +32,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          sh 'kubectl apply -f hellowhale.yml'
+          sh 'kubectl apply -f hellowhale.yml --insecure-skip-tls-verify=true'
         }
       }
     }
